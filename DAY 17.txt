@@ -1,0 +1,42 @@
+DAY 17
+moves zero- class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        
+        if(nums.size()==1)
+            return;
+        
+        int non_zero_index = 0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i] != 0){
+                nums[non_zero_index] = nums[i];
+                non_zero_index++;
+            }
+            
+        }
+        for(int i=non_zero_index;i<nums.size();i++)
+            nums[i] = 0;
+      
+    }
+};
+SOL 2
+two sum -input array of sorted-class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int s = 0;
+        int e = numbers.size() - 1;
+        int sum = 0;
+        
+        while(s < e) {
+            sum = numbers[s] + numbers[e];
+            if (sum < target) {
+                ++s;
+            } else if (sum > target) {
+                --e;
+            } else {
+                break;
+            }
+        }
+        return {s+1, e+1};
+    }
+};

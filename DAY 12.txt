@@ -1,0 +1,53 @@
+DAY 12 
+SOL 1
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+     if(root==NULL) // check root node is null value then return null else swap left t
+         return NULL;
+        swap(root->left,root->right);
+        invertTree(root->left);
+        invertTree(root->right);
+        return root;
+    }
+};
+SOL 2
+
+class Solution {
+public:
+   // bool ans=false;
+    bool hasPathSum(TreeNode* root, int targetSum)
+    {
+    /*    DFS (root,target, 0);
+            return ans;
+    }
+void DFS(TreeNode* root,int target,int csum)
+    
+{
+    if(root==NULL)
+    return;
+    
+if(root->right==NULL&& root ->left==NULL)
+{
+    csum+=root->val;
+if(csum==target)
+    ans=true;
+return;
+}
+csum+=root->val;
+DFS(root->left,target,csum);
+DFS(root->right,target,csum);
+    */
+        if(root==NULL)
+    return false;
+    targetSum-=root->val;
+    if(!root->left && !root->right)
+    {
+if(targetSum==0)
+return true;
+}
+return(hasPathSum(root->left,targetSum) || hasPathSum(root->right,targetSum));
+
+        
+    }
+};

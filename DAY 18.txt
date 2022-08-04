@@ -1,0 +1,34 @@
+DAY 18
+SOL 1
+reverse string -class Solution {
+public:
+    void reverseString(vector<char>& s) {
+       
+        int left=0;
+         int right=s.size()-1;
+        while(left<right)
+        {
+         char temp=s[left];
+            s[left++]=s[right];
+            s[right--]=temp;
+        }
+        }
+};
+SOL 2
+reverse word in a string III-class Solution {
+public:
+    string reverseWords(string s) {
+       int l = 0;
+        int r = 0;  //l -left ,r - right
+        while(l<s.size())
+        {
+        while(r < s.size() && s[r] !=' ')
+            r++;
+            reverse(s.begin()+l, s.begin()+r);
+            l=r+1;
+            r=l;
+        }
+    return s;
+        
+    }
+};  

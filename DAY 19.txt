@@ -1,0 +1,36 @@
+DAY 19
+SOL 1
+middle of linked list -
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode *hare,*tortoise;
+        hare=tortoise=head;
+        while(hare && hare ->next)
+        {
+            hare=hare->next->next;
+        tortoise =tortoise ->next;
+        }
+        return tortoise;
+    }
+};
+SOL 2
+Remove Nth Node From End of List-
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode*start =new ListNode();
+         start->next=head;
+        ListNode*fast=start;
+        ListNode*slow=start;
+        for(int i=1; i<=n;i++)
+            fast=fast->next;
+        while(fast->next !=NULL)
+        {
+        fast=fast->next;
+        slow=slow->next;
+        }
+        slow->next=slow->next->next;
+        return start->next;
+    }
+};

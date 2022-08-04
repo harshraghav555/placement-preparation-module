@@ -1,0 +1,24 @@
+DAY 16
+SOL 1
+square of sorted array-class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& A) {
+        for(int i = 0; i < A.size(); i++){
+            A[i] *= A[i];
+        }
+        
+        sort(A.begin(), A.end());
+        
+        return A;
+    }
+};
+SOL 2
+rotate array-class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+          k = k % nums.size();
+        reverse(nums.begin(), nums.end());
+        reverse(nums.begin(), nums.begin() + k);
+        reverse(nums.begin() + k, nums.end());
+    }
+};  
